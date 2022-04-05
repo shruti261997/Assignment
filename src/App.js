@@ -1,24 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import SignIn from "./component/Login";
+
+import {
+  BrowserRouter,
+  Route,
+  Routes,
+  
+} from "react-router-dom";
+import AddProducts from "./component/AddProducts";
+import React, { useContext } from "react";
+import { Login } from "./component/context/context";
+import Products from "./component/Products";
+
+
 
 function App() {
+  let context = useContext(Login);
+  const userId = localStorage.getItem("login");
+  console.log(userId?.length);
+  let routes = userId?.length ? (
+    <>
+      <Route path="/products" element={<Products />} />
+      <Route path="/" element={<SignIn />} />
+     {context.login && <Route exact path="/addproducts" element={<AddProducts />} />}
+    </>
+  ) : (<>
+     <Route path="/products" element={<SignIn />} />
+      <Route path="/addproducts" element={<SignIn />} />
+      <Route path="/" element={<SignIn />} />
+     </>);
+  //console.log(routes)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {console.log(context?.login, "login")}
+
+      <BrowserRouter>
+      <Routes>{routes}</Routes>
+      </BrowserRouter>
+     
+    </>
   );
 }
 
