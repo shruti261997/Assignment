@@ -114,7 +114,7 @@ const Menubar = () => {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-         <span style={{color: "pink"}} > Hi {user.substring(0,7)}!</span>
+         <span style={{color: "pink"}} > Hello {user.substring(0,7)}!</span>
             <Tooltip title="Open settings">
            <IconButton onClick={handleOpenUserMenu} sx={{ p: 0, marginLeft:2 }} >
               <Avatar alt="Remy Sharp" src="/images/user.png" />
