@@ -18,7 +18,7 @@ import Menubar from "./component/Menubar";
 function App() {
   let context = useContext(Login);
   const userId = localStorage.getItem("login");
-  console.log(userId?.length);
+
   useEffect(()=>{
     if(userId)
     {
