@@ -20,14 +20,12 @@ export default function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isError, setIsError] = useState(false);
-  const [disableFlag,setDisableFlag]=useState(true);
   const navigate = useNavigate();
   
 
 const loginContext = React.useContext(Login);
-console.log(loginContext.login,'con');
-  
-  const clickHandler = (e) => {
+
+const clickHandler = (e) => {
     e.preventDefault();
   
     let obj = {};
@@ -38,8 +36,7 @@ console.log(loginContext.login,'con');
       }
     });
     if (obj.email === email && obj.pwd === password) {
-      console.log('we are going to dispatch now,as password is correct')
-      loginContext.dispatch({type:'login'});
+       loginContext.dispatch({type:'login'});
       navigate("/products");
       setIsError(false);
     } else {

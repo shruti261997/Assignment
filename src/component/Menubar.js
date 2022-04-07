@@ -18,24 +18,15 @@ const Menubar = () => {
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const navigate = useNavigate();
   const context = React.useContext(Login);
-
   const user = localStorage.getItem("login");
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
-
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
-  const handleLogOut = () => {
+const handleLogOut = () => {
     localStorage.removeItem("login");
     context.dispatch({ type: "logout" });
     navigate("/");

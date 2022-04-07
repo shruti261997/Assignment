@@ -36,17 +36,14 @@ function App() {
       <Route path="/addproducts" element={<SignIn />} />
       <Route path="/" element={<SignIn />} />
      </>);
-  //console.log(routes)
+  
   return (
     <>
-      {console.log(context?.login, "login")}
-    
-      <BrowserRouter>
+     <BrowserRouter>
       <Menubar />
       <Routes>{routes}</Routes>
       </BrowserRouter>
-     
-    </>
+      </>
   );
 }
 

@@ -8,13 +8,8 @@ import * as React from 'react';
 import Typography from '@mui/material/Typography';
 
 export default function AddProductList(props) {
-        
-      console.log(props?.prodArray,'prodArray')
-
-
-
-
- return(
+   
+   return(
     <List sx={{ width: '100%', maxWidth: '100', bgcolor: 'background.paper' }}>
         {props?.prodArray.map((item)=>(
  <>
@@ -40,10 +35,5 @@ export default function AddProductList(props) {
  <Divider variant="inset" component="li" />
  </>
       ))}
-    
-    
- </List>
-  )
-
-
- };
+</List>
+  )};

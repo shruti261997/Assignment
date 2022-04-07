@@ -1,16 +1,14 @@
 import * as React from "react";
-
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import ProductCard from "./ProductCard";
 import { productData } from "./productData";
-import Menubar from "./Menubar";
+
 
 export default function Products() {
   return (
     <>
-     
-      <Box sx={{ flexGrow: 1, mt: 4,ml:4 }}>
+     <Box sx={{ flexGrow: 1, mt: 4,ml:4 }}>
         <Grid
           container
           spacing={2}   
@@ -22,8 +20,7 @@ export default function Products() {
             </Grid>
           ))}
         </Grid>
-        
-      </Box>
+        </Box>
     </>
   );
 }
