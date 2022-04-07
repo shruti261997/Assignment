@@ -8,9 +8,10 @@ import {
   
 } from "react-router-dom";
 import AddProducts from "./component/AddProducts";
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Login } from "./component/context/context";
 import Products from "./component/Products";
+import Menubar from "./component/Menubar";
 
 
 
@@ -18,11 +19,17 @@ function App() {
   let context = useContext(Login);
   const userId = localStorage.getItem("login");
   console.log(userId?.length);
+  useEffect(()=>{
+    if(userId)
+    {
+      context.dispatch({type:'login'});
+    }
+  },[])
   let routes = userId?.length ? (
     <>
       <Route path="/products" element={<Products />} />
       <Route path="/" element={<SignIn />} />
-     {context.login && <Route exact path="/addproducts" element={<AddProducts />} />}
+     {<Route path="/addproducts" element={<AddProducts />} />}
     </>
   ) : (<>
      <Route path="/products" element={<SignIn />} />
@@ -33,8 +40,9 @@ function App() {
   return (
     <>
       {console.log(context?.login, "login")}
-
+    
       <BrowserRouter>
+      <Menubar />
       <Routes>{routes}</Routes>
       </BrowserRouter>
      

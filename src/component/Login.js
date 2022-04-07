@@ -2,8 +2,6 @@ import * as React from "react";
 import { useState } from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
-import CssBaseline from "@mui/material/CssBaseline";
-import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import Box from "@mui/material/Box";
@@ -22,6 +20,7 @@ export default function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isError, setIsError] = useState(false);
+  const [disableFlag,setDisableFlag]=useState(true);
   const navigate = useNavigate();
   
 
@@ -32,9 +31,9 @@ console.log(loginContext.login,'con');
     e.preventDefault();
   
     let obj = {};
-    loginData.map((i) => {
-      if (i.email === email && i.password === password) {
-        obj = { ...obj, email: i.email, pwd: i.password };
+    loginData.map((detail) => {
+      if (detail.email === email && detail.password === password) {
+        obj = { ...obj, email: detail.email, pwd: detail.password };
         localStorage.setItem('login',email);
       }
     });
@@ -55,14 +54,15 @@ console.log(loginContext.login,'con');
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
-        <CssBaseline />
-        <Box
+        
+        <Box 
           sx={{
             marginTop: 8,
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-          }}
+            
+            }}
         >
           <Avatar sx={{ bgcolor: "green" }}>
             <LockOutlinedIcon />
@@ -70,7 +70,7 @@ console.log(loginContext.login,'con');
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <ValidatorForm  
+          <ValidatorForm  style={{width:"100%" }} 
           onError={errors => console.log(errors)} 
             sx={{ mt: 1 }}>
             <TextValidator
@@ -110,6 +110,7 @@ console.log(loginContext.login,'con');
             />
 
             <Button
+            disabled={email.length && password.length?false:true}
               onClick={(e) => clickHandler(e)}
               type="submit"
               fullWidth

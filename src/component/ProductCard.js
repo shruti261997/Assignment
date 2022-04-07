@@ -21,7 +21,7 @@ export default function ProductCard(props) {
     },
     Card: {
       height:400,
-      width: 300,
+      width: '100%',
       margin: "auto"   },
   });
   const classes = useStyle();
@@ -77,7 +77,7 @@ export default function ProductCard(props) {
             <Button onClick={handleClose}>close</Button>
            </DialogActions>
         </Dialog>
-      </div>
+        </div>
     </>
   );
 }

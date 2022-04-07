@@ -10,6 +10,6 @@ export const reducer = (state, action) => {
       return { ...state, login: false };
     }
     default:
-      return { ...state,login:false };
+      return { ...state};
   }
 };

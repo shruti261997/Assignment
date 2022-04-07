@@ -9,6 +9,8 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import AddProductList from "./AddProductList";
 
+
+
 export default function AddProducts() {
   const theme = createTheme();
   const [title, setTitle] = useState("");
@@ -75,6 +77,7 @@ console.log(prodArray,'prod',title,description)
               />
 
               <Button
+                 disabled={title.length && description.length?false:true}
                 type="submit"
                 fullWidth
                 variant="contained"
@@ -87,7 +90,8 @@ console.log(prodArray,'prod',title,description)
           </Box>
         </Container>
       </ThemeProvider>
-      <AddProductList productArray={prodArray} />
-    </>
+        <AddProductList prodArray= {prodArray}/>        
+
+          </>
   );
 }

@@ -9,12 +9,12 @@ import Menubar from "./Menubar";
 export default function Products() {
   return (
     <>
-     <Menubar/>
-      <Box sx={{ flexGrow: 1, mt: 4 }}>
+     
+      <Box sx={{ flexGrow: 1, mt: 4,ml:4 }}>
         <Grid
           container
-          spacing={{ xs: 2, md: 3 }}
-          columns={{ xs: 4, sm: 8, md: 12 }}
+          spacing={2}   
+          columns={{ xs: 2, sm: 8, md: 12 }}       
         >
           {productData.map((item, index) => (
             <Grid item xs={2} sm={4} md={4} key={index}>
@@ -22,6 +22,7 @@ export default function Products() {
             </Grid>
           ))}
         </Grid>
+        
       </Box>
     </>
   );
